@@ -1,0 +1,136 @@
+@import "tailwindcss";
+
+@source "./*.html";
+@source "./app.js";
+
+@theme {
+  --color-ink: #262b31;
+  --color-paper: #fffdfa;
+  --color-sand: #f5f0e9;
+  --color-rose: #a9484c;
+  --color-rose-dark: #84353b;
+  --color-rose-soft: #f8e9e7;
+  --color-muted: #68717b;
+  --font-sans: "Aptos", "Segoe UI", system-ui, sans-serif;
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+  }
+
+  a {
+    text-underline-offset: 0.2em;
+  }
+
+  button,
+  input,
+  select {
+    font: inherit;
+  }
+
+  :focus-visible {
+    outline: 3px solid #bd6b6d;
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  .container-wide {
+    width: min(100% - 2.5rem, 76rem);
+    margin-inline: auto;
+  }
+
+  .eyebrow {
+    color: var(--color-rose);
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    min-height: 3rem;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    border: 1px solid var(--color-rose);
+    border-radius: 999px;
+    background: var(--color-rose);
+    padding: 0.75rem 1.25rem;
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color 160ms ease, transform 160ms ease;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-1px);
+    background: var(--color-rose-dark);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    min-height: 3rem;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ddd3ca;
+    border-radius: 999px;
+    background: white;
+    padding: 0.75rem 1.25rem;
+    color: var(--color-ink);
+    font-weight: 700;
+    text-decoration: none;
+    transition: border-color 160ms ease, background-color 160ms ease;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--color-rose);
+    background: var(--color-rose-soft);
+  }
+
+  .card {
+    border: 1px solid #eee6de;
+    border-radius: 1.25rem;
+    background: white;
+    box-shadow: 0 12px 35px rgb(46 35 27 / 5%);
+  }
+
+  .page-hero {
+    background:
+      radial-gradient(ellipse at 85% 20%, rgb(255 255 255 / 75%), transparent 35%),
+      linear-gradient(125deg, #f8e9e7 0%, #fbf3eb 56%, #f3efe7 100%);
+  }
+
+  .admin-table-wrap {
+    overflow-x: auto;
+    border: 1px solid #eee6de;
+    border-radius: 1rem;
+  }
+}
+
+@media (min-width: 640px) {
+  .container-wide {
+    width: min(100% - 3.5rem, 76rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

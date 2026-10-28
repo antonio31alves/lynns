@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lynns Travel | Premium Coach Holidays</title>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Configuration (Red #dc2626 & White Theme) -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#fef2f2',
+                            100: '#fee2e2',
+                            200: '#fecaca',
+                            300: '#fca5a5',
+                            400: '#f87171',
+                            500: '#ef4444',
+                            600: '#dc2626', // Main Red #dc2626
+                            700: '#b91c1c',
+                            800: '#991b1b',
+                            900: '#7f1d1d',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #ffffff; }
+        ::-webkit-scrollbar-thumb { background: #fca5a5; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #dc2626; }
+        
+        input[type=number]::-webkit-inner-spin-button, 
+        input[type=number]::-webkit-outer-spin-button { 
+            -webkit-appearance: none; margin: 0; 
+        }
+
+        .airbnb-ease {
+            transition: all 0.35s cubic-bezier(0.2, 0, 0, 1);
+        }
+
+        /* --- Mosaic Blending (Estático, sin hover) --- */
+        .mosaic-item {
+            /* Difumina suavemente los bordes hacia el fondo sin saltos ni líneas duras */
+            -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 80%);
+            mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 80%);
+            opacity: 0.75;
+        }
+
+        .mosaic-item img {
+            transform: scale(1.15);
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-white antialiased selection:bg-brand-600 selection:text-white relative">
+
+    <!-- Navigation Bar -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-transparent py-4 border-b border-transparent pointer-events-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <!-- Lynns Travel Logo -->
+                <a href="#" class="flex items-center gap-3 cursor-pointer group">
+                    <div class="bg-white px-3 py-1.5 rounded-xl flex items-center justify-center transition-transform group-hover:scale-105">
+                        <img src="logo-lynns.png" 
+                             alt="Lynns Travel Eastbourne Logo" 
+                             class="h-8 md:h-10 w-auto object-contain"
+                             onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'text-brand-600 font-extrabold text-xl tracking-tighter\'>LYNNS <span class=\'font-normal italic text-gray-800\'>Eastbourne</span></span>'">
+                    </div>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#packagesSection" class="text-sm font-bold text-white hover:text-brand-200 transition-colors nav-link drop-shadow-md">Holidays</a>
+                    <a href="#packagesSection" class="text-sm font-bold text-white hover:text-brand-200 transition-colors nav-link drop-shadow-md">Day Excursions</a>
+                    <a href="#packagesSection" class="text-sm font-bold text-white hover:text-brand-200 transition-colors nav-link drop-shadow-md">Coach Hire</a>
+                    <a href="#packagesSection" class="text-sm font-bold text-white hover:text-brand-200 transition-colors nav-link drop-shadow-md">Brochure</a>
+                </div>
+
+                <!-- User Actions -->
+                <div class="flex items-center gap-4">
+                    <button class="bg-white text-brand-600 border-2 border-transparent hover:border-brand-600 px-6 py-2.5 rounded-full text-sm font-bold shadow-lg hover:shadow-xl transition-all duration-200 hover:bg-brand-50">
+                        Sign In
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section (Centered with Masonry Background) -->
+    <header class="relative min-h-[92vh] flex items-center justify-center pt-24 pb-20 overflow-visible">
+        
+        <!-- Background Imagery Mosaic with smooth gradient blend -->
+        <div class="absolute inset-0 z-0 overflow-hidden bg-gray-950 pointer-events-none">
+            
+            <div class="grid grid-cols-2 md:grid-cols-5 grid-rows-5 md:grid-rows-2 gap-0 w-full h-full">
+                
+                <!-- 1. Paris (Centerpiece - 2x2) -->
+                <div class="col-span-2 md:col-start-3 md:col-span-2 row-span-2 relative mosaic-item">
+                    <img src="https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?auto=format&fit=crop&q=80&w=1200" alt="Paris" />
+                </div>
+
+                <!-- 2. London (1x1) -->
+                <div class="col-span-1 md:col-start-1 md:row-start-1 relative mosaic-item">
+                    <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&q=80&w=800" alt="London" />
+                </div>
+
+                <!-- 3. Bruges (Requested URL) -->
+                <div class="col-span-1 md:col-start-1 md:row-start-2 relative mosaic-item">
+                    <img src="https://images7.alphacoders.com/108/thumb-1920-1081129.jpg" alt="Bruges Belgium" onerror="this.src='https://images.unsplash.com/photo-1572085313466-6710de8d7ba3?auto=format&fit=crop&q=80&w=800'" />
+                </div>
+
+                <!-- 4. Edinburgh -->
+                <div class="col-span-1 md:col-start-2 md:row-start-1 relative mosaic-item">
+                    <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&q=80&w=800" alt="Edinburgh Scotland" />
+                </div>
+
+                <!-- 5. Jurassic Coast -->
+                <div class="col-span-1 md:col-start-2 md:row-start-2 relative mosaic-item">
+                    <img src="https://images.unsplash.com/photo-1507699622108-4be3abd695ad?auto=format&fit=crop&q=80&w=800" alt="Jurassic Coast Dorset" />
+                </div>
+
+                <!-- 6. Dorset -->
+                <div class="col-span-1 md:col-start-5 md:row-start-1 relative mosaic-item">
+                    <img src="https://www.dream-cottages.co.uk/blog/wp-content/uploads/sites/7/2019/12/Feature-Image-Jurassic-Coast-Facts.jpg" alt="Dorset" />
+                </div>
+
+                <!-- 7. Blackpool / Edinburgh Night -->
+                <div class="col-span-1 md:col-start-5 md:row-start-2 relative mosaic-item">
+                    <img src="https://img.magnific.com/premium-photo/night-view-victoria-street-edinburgh-scotland-uk_1324215-2839.jpg?semt=ais_hybrid&w=740&q=80" alt="Blackpool" />
+                </div>
+            </div>
+            
+            <!-- Tint and Gradient overlays -->
+            <div class="absolute inset-0 bg-brand-900/10 mix-blend-multiply"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/30 to-white"></div>
+        </div>
+
+        <!-- Centered Search Component Wrapper -->
+        <div class="relative z-30 w-full max-w-5xl mx-auto px-4 flex flex-col items-center justify-center my-auto pointer-events-none">
+            <span class="bg-brand-600 text-white px-5 py-1.5 rounded-full text-xs font-black tracking-widest uppercase mb-4 shadow-xl border border-brand-500/50 pointer-events-auto">
+                Discover Europe & UK
+            </span>
+            <h1 class="text-4xl md:text-6xl font-black text-white mb-8 text-center tracking-tight drop-shadow-xl pointer-events-auto">
+                Where will we take you?
+            </h1>
+
+            <!-- Airbnb Interactive Search Bar Container -->
+            <div class="relative w-full max-w-4xl pointer-events-auto" id="searchWrapper">
+                
+                <form id="searchContainer" class="bg-white rounded-full shadow-2xl p-0 border border-gray-200 flex flex-col md:flex-row items-stretch transition-colors duration-300 relative w-full z-30">
+                    
+                    <!-- 100% Full-bleed Dynamic Active Pill Indicator -->
+                    <div id="activePill" class="absolute bg-white rounded-full shadow-[0_4px_24px_rgba(0,0,0,0.18)] pointer-events-none transition-all duration-300 airbnb-ease z-0 opacity-0"></div>
+
+                    <!-- Segment 1: Destination -->
+                    <div class="search-segment flex-[1.2] relative cursor-pointer rounded-full px-6 py-3.5 transition-colors duration-200 flex items-center justify-between z-10" id="segment-dest" data-index="0">
+                        <div class="w-full text-left truncate mr-2">
+                            <label for="destinationSearch" class="block text-[11px] font-extrabold text-gray-800 tracking-wider uppercase cursor-pointer pointer-events-none">Destination</label>
+                            <input type="text" id="destinationSearch" placeholder="Search destinations" class="w-full bg-transparent text-gray-800 placeholder-gray-400 focus:outline-none text-sm font-semibold truncate mt-0.5" autocomplete="off" />
+                        </div>
+                        <!-- Individual Clear '✕' Button -->
+                        <button type="button" id="clearDestBtn" class="w-6 h-6 rounded-full bg-gray-200 hover:bg-gray-300 text-gray-600 flex items-center justify-center text-xs font-bold shrink-0 transition-opacity opacity-0 pointer-events-none">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+
+                    <!-- Divider 1 -->
+                    <div id="divider-1" class="search-divider hidden md:block w-px self-center h-8 bg-gray-200 transition-opacity duration-200 z-10 pointer-events-none"></div>
+
+                    <!-- Segment 2: When (Calendar) -->
+                    <div class="search-segment flex-1 relative cursor-pointer rounded-full px-6 py-3.5 transition-colors duration-200 flex items-center justify-between z-10" id="segment-when" data-index="1">
+                        <div class="w-full text-left truncate mr-2">
+                            <label class="block text-[11px] font-extrabold text-gray-800 tracking-wider uppercase cursor-pointer pointer-events-none">When</label>
+                            <div class="text-sm font-semibold text-gray-400 truncate mt-0.5 pointer-events-none" id="whenDisplayText">Add dates</div>
+                        </div>
+                        <!-- Individual Clear '✕' Button -->
+                        <button type="button" id="clearWhenBtn" class="w-6 h-6 rounded-full bg-gray-200 hover:bg-gray-300 text-gray-600 flex items-center justify-center text-xs font-bold shrink-0 transition-opacity opacity-0 pointer-events-none">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+
+                    <!-- Divider 2 -->
+                    <div id="divider-2" class="search-divider hidden md:block w-px self-center h-8 bg-gray-200 transition-opacity duration-200 z-10 pointer-events-none"></div>
+
+                    <!-- Segment 3: Passengers & Search Action -->
+                    <div class="search-segment flex-[1.1] relative cursor-pointer rounded-full pl-6 pr-2 py-2 transition-colors duration-200 flex items-center justify-between z-10" id="segment-pax" data-index="2">
+                        <div class="text-left truncate mr-2">
+                            <label class="block text-[11px] font-extrabold text-gray-800 tracking-wider uppercase cursor-pointer pointer-events-none">Passengers</label>
+                            <div class="text-sm font-semibold text-gray-400 truncate mt-0.5 pointer-events-none" id="passengerDisplayText">Add passengers</div>
+                        </div>
+                        
+                        <div class="flex items-center gap-2">
+                            <!-- Individual Clear '✕' Button -->
+                            <button type="button" id="clearPaxBtn" class="w-6 h-6 rounded-full bg-gray-200 hover:bg-gray-300 text-gray-600 flex items-center justify-center text-xs font-bold shrink-0 transition-opacity opacity-0 pointer-events-none">
+                                <i class="fa-solid fa-xmark"></i>
+                            </button>
+
+                            <!-- Magnifying Search Button -->
+                            <button type="button" id="searchBtn" class="h-11 md:h-12 w-11 md:w-12 bg-brand-600 hover:bg-brand-700 text-white rounded-full flex items-center justify-center gap-2 transition-all duration-300 shadow-md shrink-0 z-20">
+                                <i class="fa-solid fa-magnifying-glass text-sm"></i>
+                                <span id="searchText" class="font-bold hidden whitespace-nowrap text-sm pr-1">Search</span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- UNIFIED MORPHING DROPDOWN CONTAINER -->
+                <div id="unifiedDropdown" class="absolute top-full mt-3 bg-white rounded-3xl shadow-[0_16px_40px_rgba(0,0,0,0.22)] border border-gray-100 z-[100] hidden overflow-hidden airbnb-ease">
+                    
+                    <!-- PANE 1: Destination Suggestions -->
+                    <div id="pane-dest" class="dropdown-pane p-6 w-full md:w-96">
+                        <h4 class="text-xs font-black text-gray-700 uppercase tracking-wider mb-3">Popular Destinations</h4>
+                        <div class="space-y-1">
+                            <button type="button" class="suggestion-item w-full text-left px-3.5 py-2.5 hover:bg-gray-50 rounded-2xl flex items-center gap-3 transition-colors" data-value="Paris">
+                                <div class="w-10 h-10 rounded-xl bg-red-50 text-brand-600 flex items-center justify-center shrink-0 text-base font-bold">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-gray-800 text-sm">Paris, France</p>
+                                    <p class="text-xs text-gray-400">Continental city breaks & Burgundy</p>
+                                </div>
+                            </button>
+                            <button type="button" class="suggestion-item w-full text-left px-3.5 py-2.5 hover:bg-gray-50 rounded-2xl flex items-center gap-3 transition-colors" data-value="Brugge">
+                                <div class="w-10 h-10 rounded-xl bg-red-50 text-brand-600 flex items-center justify-center shrink-0 text-base font-bold">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-gray-800 text-sm">Brugge, Belgium</p>
+                                    <p class="text-xs text-gray-400">Medieval canals & chocolate tours</p>
+                                </div>
+                            </button>
+                            <button type="button" class="suggestion-item w-full text-left px-3.5 py-2.5 hover:bg-gray-50 rounded-2xl flex items-center gap-3 transition-colors" data-value="Edinburgh">
+                                <div class="w-10 h-10 rounded-xl bg-red-50 text-brand-600 flex items-center justify-center shrink-0 text-base font-bold">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-gray-800 text-sm">Edinburgh, Scotland</p>
+                                    <p class="text-xs text-gray-400">Historic castle & festive markets</p>
+                                </div>
+                            </button>
+                            <button type="button" class="suggestion-item w-full text-left px-3.5 py-2.5 hover:bg-gray-50 rounded-2xl flex items-center gap-3 transition-colors" data-value="Isle of Wight">
+                                <div class="w-10 h-10 rounded-xl bg-red-50 text-brand-600 flex items-center justify-center shrink-0 text-base font-bold">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-gray-800 text-sm">Isle of Wight, UK</p>
+                                    <p class="text-xs text-gray-400">Sandown, coastal walks & Needles</p>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- PANE 2: Dual Month Interactive Airbnb Calendar (Full Width Centered) -->
+                    <div id="pane-when" class="dropdown-pane p-6 md:p-8 w-full hidden">
+                        <div class="flex items-center justify-between mb-6 pb-3 border-b border-gray-100">
+                            <div>
+                                <h3 class="font-bold text-gray-900 text-lg">Select travel dates</h3>
+                                <p class="text-xs text-gray-500 font-medium mt-0.5">Choose your departure and return schedule</p>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <button type="button" id="prevMonthBtn" class="w-9 h-9 rounded-full border border-gray-200 hover:border-gray-800 flex items-center justify-center text-gray-600 transition-colors">
+                                    <i class="fa-solid fa-chevron-left text-xs"></i>
+                                </button>
+                                <button type="button" id="nextMonthBtn" class="w-9 h-9 rounded-full border border-gray-200 hover:border-gray-800 flex items-center justify-center text-gray-600 transition-colors">
+                                    <i class="fa-solid fa-chevron-right text-xs"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 2-Month Grid -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12" id="dualCalendarContainer">
+                            <!-- Injected by JavaScript -->
+                        </div>
+
+                        <!-- Calendar Footer -->
+                        <div class="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between">
+                            <button type="button" id="flexibleDateBtn" class="text-xs font-extrabold text-brand-600 hover:underline">
+                                I'm flexible (Any weekend)
+                            </button>
+                            <button type="button" id="confirmDatesBtn" class="bg-brand-600 hover:bg-brand-700 text-white text-xs font-bold px-6 py-2.5 rounded-full shadow-md transition-colors">
+                                Save dates & Next
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- PANE 3: Passenger Count -->
+                    <div id="pane-pax" class="dropdown-pane p-6 w-full md:w-84 hidden">
+                        <div class="space-y-5">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="font-bold text-gray-900 text-sm">Adults</p>
+                                    <p class="text-xs text-gray-500">Ages 13 or above</p>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <button type="button" id="adultMinus" class="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center text-gray-600 hover:border-gray-800 disabled:opacity-40" disabled>-</button>
+                                    <span id="adultCount" class="font-bold text-gray-900 w-4 text-center text-sm">0</span>
+                                    <button type="button" id="adultPlus" class="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center text-gray-600 hover:border-gray-800">+</button>
+                                </div>
+                            </div>
+
+                            <div class="border-t border-gray-100 pt-4 flex items-center justify-between">
+                                <div>
+                                    <p class="font-bold text-gray-900 text-sm">Children</p>
+                                    <p class="text-xs text-gray-500">Ages 2 to 12</p>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <button type="button" id="childMinus" class="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center text-gray-600 hover:border-gray-800 disabled:opacity-40" disabled>-</button>
+                                    <span id="childCount" class="font-bold text-gray-900 w-4 text-center text-sm">0</span>
+                                    <button type="button" id="childPlus" class="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center text-gray-600 hover:border-gray-800">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- What We Offer Section -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 bg-white">
+        <div class="mb-14 text-center">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-brand-600 tracking-tight mb-4 uppercase">Welcome to Lynns Travel</h2>
+            <p class="text-gray-600 text-lg font-medium max-w-3xl mx-auto leading-relaxed">
+                Lynns Travel is an independent, family operated travel company based in Eastbourne. We offer premier day excursions, short breaks and executive holidays by coach.
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-red-50/70 rounded-3xl p-8 border border-red-100 shadow-sm hover:shadow-md transition-shadow flex flex-col">
+                <div class="w-14 h-14 bg-white text-brand-600 rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-sm border border-red-100">
+                    <i class="fa-solid fa-suitcase-rolling"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-3 tracking-wide uppercase">Holidays & Short Breaks</h3>
+                <p class="text-gray-700 font-medium mb-5 text-sm">Curated collection of UK, Scottish, Irish or Continental coach holidays:</p>
+                <ul class="space-y-3 text-sm text-gray-600 flex-grow">
+                    <li class="flex items-start gap-2"><i class="fa-solid fa-chevron-right text-brand-600 mt-1 text-xs"></i> <span>City breaks to London, Paris and Brugge</span></li>
+                    <li class="flex items-start gap-2"><i class="fa-solid fa-chevron-right text-brand-600 mt-1 text-xs"></i> <span>Scenic tours of Scotland, Wales and Ireland</span></li>
+                    <li class="flex items-start gap-2"><i class="fa-solid fa-chevron-right text-brand-600 mt-1 text-xs"></i> <span>Island escapes to Isle of Wight and Channel Islands</span></li>
+                    <li class="flex items-start gap-2"><i class="fa-solid fa-chevron-right text-brand-600 mt-1 text-xs"></i> <span>European tours to France, Belgium, Germany, Austria and Italy</span></li>
+                </ul>
+            </div>
+            
+            <div class="bg-red-50/70 rounded-3xl p-8 border border-red-100 shadow-sm hover:shadow-md transition-shadow flex flex-col">
+                <div class="w-14 h-14 bg-white text-brand-600 rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-sm border border-red-100">
+                    <i class="fa-solid fa-calendar-day"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-3 tracking-wide uppercase">Day Excursions</h3>
+                <p class="text-gray-700 font-medium mb-5 text-sm">Convenient day trips across the UK and the near Continent:</p>
+                <ul class="space-y-3 text-sm text-gray-600 flex-grow">
+                    <li class="flex items-start gap-2"><i class="fa-solid fa-chevron-right text-brand-600 mt-1 text-xs"></i> <span>Historic market towns and cathedral cities</span></li>
+                    <li class="flex items-start gap-2"><i class="fa-solid fa-chevron-right text-brand-600 mt-1 text-xs"></i> <span>National Trust and English Heritage castles & gardens</span></li>
+                    <li class="flex items-start gap-2"><i class="fa-solid fa-chevron-right text-brand-600 mt-1 text-xs"></i> <span>London West End theatre shows and musical matinees</span></li>
+                    <li class="flex items-start gap-2"><i class="fa-solid fa-chevron-right text-brand-600 mt-1 text-xs"></i> <span>Shopping trips to Westfield, Bluewater and Lakeside</span></li>
+                </ul>
+            </div>
+
+            <div class="bg-red-50/70 rounded-3xl p-8 border border-red-100 shadow-sm hover:shadow-md transition-shadow flex flex-col">
+                <div class="w-14 h-14 bg-white text-brand-600 rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-sm border border-red-100">
+                    <i class="fa-solid fa-bus"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-3 tracking-wide uppercase">Private Coach Hire</h3>
+                <div class="flex-grow">
+                    <p class="text-gray-700 font-medium mb-4 text-sm">Executive private hire for schools, clubs, corporate events and private parties.</p>
+                    <p class="text-gray-600 text-sm mb-6">Our modern fleet offers luxury seating, air conditioning, and professional drivers.</p>
+                </div>
+                <button class="w-full bg-white border-2 border-brand-600 text-brand-600 hover:bg-brand-600 hover:text-white px-6 py-3 rounded-xl text-sm font-bold transition-colors duration-200 shadow-sm mt-auto">
+                    View Fleet Details
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 bg-white border-t border-gray-100" id="packagesSection">
+        <div class="flex justify-between items-end mb-10">
+            <div>
+                <h2 class="text-3xl md:text-4xl font-black text-brand-600 tracking-tight mb-2">Available Packages</h2>
+                <p class="text-gray-500 text-base md:text-lg font-medium">Explore hand-picked holidays with coach travel included.</p>
+            </div>
+        </div>
+
+        <!-- No Results Notification -->
+        <div id="noResults" class="hidden text-center py-16 bg-red-50 rounded-3xl border-2 border-dashed border-red-200">
+            <i class="fa-solid fa-map-location-dot text-4xl text-brand-400 mb-4"></i>
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">No matching holidays found</h3>
+            <p class="text-gray-600 mb-6">Try searching for "Paris", "Brugge", "Blackpool", or "Edinburgh".</p>
+            <button id="resetFilterBtn" class="bg-brand-600 text-white font-bold px-6 py-2.5 rounded-full hover:bg-brand-700 transition-colors">Show All Holidays</button>
+        </div>
+
+        <!-- Tour Cards Grid -->
+        <div id="toursGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Card 1: Blackpool -->
+            <article class="tour-card group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl border border-gray-100 hover:border-brand-500 transition-all duration-300 flex flex-col h-full" data-title="blackpool illuminations lytham uk england">
+                <div class="aspect-[4/3] overflow-hidden relative">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRm14CniewxDa0nbCRmkbxpaHU2dFybWlKp3lr6lDC0bo1DvXmnaJtFQBTY&s=10" alt="Blackpool" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="text-xl font-bold text-gray-900 leading-tight mb-2 group-hover:text-brand-600 transition-colors">Blackpool Illuminations</h3>
+                    <div class="flex items-center gap-4 mb-3">
+                        <span class="text-brand-600 text-xs font-black flex items-center gap-1.5"><i class="fa-regular fa-calendar"></i> Oct 12, 2026</span>
+                        <span class="text-gray-500 text-xs font-bold flex items-center gap-1.5"><i class="fa-regular fa-clock"></i> 5 Days</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-6 flex-grow">Staying at Lytham-St Annes with an included excursion into the scenic Lake District.</p>
+                    <div class="mt-auto pt-4 border-t border-gray-100 flex justify-between items-center">
+                        <div>
+                            <span class="text-[11px] font-bold text-gray-400 uppercase tracking-wider block">From</span>
+                            <span class="text-2xl font-black text-brand-600">£578</span>
+                        </div>
+                        <button class="bg-white border-2 border-brand-600 text-brand-600 hover:bg-brand-600 hover:text-white px-5 py-2 rounded-xl text-xs font-extrabold transition-colors">
+                            Book Now
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 2: Brugge -->
+            <article class="tour-card group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl border border-gray-100 hover:border-brand-500 transition-all duration-300 flex flex-col h-full" data-title="brugge bruges belgium europe canals">
+                <div class="aspect-[4/3] overflow-hidden relative">
+                    <img src="https://images7.alphacoders.com/108/thumb-1920-1081129.jpg" alt="Brugge Belgium" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1572085313466-6710de8d7ba3?auto=format&fit=crop&q=80&w=800'" />
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="text-xl font-bold text-gray-900 leading-tight mb-2 group-hover:text-brand-600 transition-colors">Brugge Medieval Break</h3>
+                    <div class="flex items-center gap-4 mb-3">
+                        <span class="text-brand-600 text-xs font-black flex items-center gap-1.5"><i class="fa-regular fa-calendar"></i> Oct 27, 2026</span>
+                        <span class="text-gray-500 text-xs font-bold flex items-center gap-1.5"><i class="fa-regular fa-clock"></i> 4 Days</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-6 flex-grow">Centrally located hotel within walking distance of the historic Markt and canal tours.</p>
+                    <div class="mt-auto pt-4 border-t border-gray-100 flex justify-between items-center">
+                        <div>
+                            <span class="text-[11px] font-bold text-gray-400 uppercase tracking-wider block">From</span>
+                            <span class="text-2xl font-black text-brand-600">£587</span>
+                        </div>
+                        <button class="bg-white border-2 border-brand-600 text-brand-600 hover:bg-brand-600 hover:text-white px-5 py-2 rounded-xl text-xs font-extrabold transition-colors">
+                            Book Now
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 3: Paris & Burgundy -->
+            <article class="tour-card group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl border border-gray-100 hover:border-brand-500 transition-all duration-300 flex flex-col h-full" data-title="paris france burgundy wine chateaux europe">
+                <div class="aspect-[4/3] overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&q=80&w=800" alt="Paris" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="text-xl font-bold text-gray-900 leading-tight mb-2 group-hover:text-brand-600 transition-colors">Paris & Burgundy Holiday</h3>
+                    <div class="flex items-center gap-4 mb-3">
+                        <span class="text-brand-600 text-xs font-black flex items-center gap-1.5"><i class="fa-regular fa-calendar"></i> Nov 17, 2026</span>
+                        <span class="text-gray-500 text-xs font-bold flex items-center gap-1.5"><i class="fa-regular fa-clock"></i> 7 Days</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-6 flex-grow">Beaujolais celebration, Macon wine region, French châteaux visits and Paris sightseeing.</p>
+                    <div class="mt-auto pt-4 border-t border-gray-100 flex justify-between items-center">
+                        <div>
+                            <span class="text-[11px] font-bold text-gray-400 uppercase tracking-wider block">From</span>
+                            <span class="text-2xl font-black text-brand-600">£926</span>
+                        </div>
+                        <button class="bg-white border-2 border-brand-600 text-brand-600 hover:bg-brand-600 hover:text-white px-5 py-2 rounded-xl text-xs font-extrabold transition-colors">
+                            Book Now
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 4: Isle of Wight -->
+            <article class="tour-card group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl border border-gray-100 hover:border-brand-500 transition-all duration-300 flex flex-col h-full" data-title="isle of wight sandown coastal uk england">
+                <div class="aspect-[4/3] overflow-hidden relative">
+                    <img src="https://media.istockphoto.com/id/2114929211/photo/late-summer-dusk-over-the-needles.jpg?s=612x612&w=0&k=20&c=rxPWtDJAOXBDmLd4XCNZIHH2NLxlyq0WsXgeWVVGWso=" alt="Isle of Wight" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="text-xl font-bold text-gray-900 leading-tight mb-2 group-hover:text-brand-600 transition-colors">Isle of Wight Retreat</h3>
+                    <div class="flex items-center gap-4 mb-3">
+                        <span class="text-brand-600 text-xs font-black flex items-center gap-1.5"><i class="fa-regular fa-calendar"></i> Oct 19, 2026</span>
+                        <span class="text-gray-500 text-xs font-bold flex items-center gap-1.5"><i class="fa-regular fa-clock"></i> 5 Days</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-6 flex-grow">Trouville Hotel in Sandown with ferry crossings and comprehensive island tours.</p>
+                    <div class="mt-auto pt-4 border-t border-gray-100 flex justify-between items-center">
+                        <div>
+                            <span class="text-[11px] font-bold text-gray-400 uppercase tracking-wider block">From</span>
+                            <span class="text-2xl font-black text-brand-600">£487</span>
+                        </div>
+                        <button class="bg-white border-2 border-brand-600 text-brand-600 hover:bg-brand-600 hover:text-white px-5 py-2 rounded-xl text-xs font-extrabold transition-colors">
+                            Book Now
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 5: Edinburgh -->
+            <article class="tour-card group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl border border-gray-100 hover:border-brand-500 transition-all duration-300 flex flex-col h-full" data-title="edinburgh scotland christmas markets uk">
+                <div class="aspect-[4/3] overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&q=80&w=800" alt="Edinburgh Scotland" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="text-xl font-bold text-gray-900 leading-tight mb-2 group-hover:text-brand-600 transition-colors">Edinburgh Christmas Markets</h3>
+                    <div class="flex items-center gap-4 mb-3">
+                        <span class="text-brand-600 text-xs font-black flex items-center gap-1.5"><i class="fa-regular fa-calendar"></i> Dec 01, 2026</span>
+                        <span class="text-gray-500 text-xs font-bold flex items-center gap-1.5"><i class="fa-regular fa-clock"></i> 3 Days</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-6 flex-grow">Experience Edinburgh Castle, Princes Street Gardens and traditional Christmas stalls.</p>
+                    <div class="mt-auto pt-4 border-t border-gray-100 flex justify-between items-center">
+                        <div>
+                            <span class="text-[11px] font-bold text-gray-400 uppercase tracking-wider block">From</span>
+                            <span class="text-2xl font-black text-brand-600">£386</span>
+                        </div>
+                        <button class="bg-white border-2 border-brand-600 text-brand-600 hover:bg-brand-600 hover:text-white px-5 py-2 rounded-xl text-xs font-extrabold transition-colors">
+                            Book Now
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 6: Jurassic Coast -->
+            <article class="tour-card group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl border border-gray-100 hover:border-brand-500 transition-all duration-300 flex flex-col h-full" data-title="jurassic coast dorset durdle door uk devon">
+                <div class="aspect-[4/3] overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1507699622108-4be3abd695ad?auto=format&fit=crop&q=80&w=800" alt="Jurassic Coast" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="text-xl font-bold text-gray-900 leading-tight mb-2 group-hover:text-brand-600 transition-colors">Jurassic Coast & Dorset</h3>
+                    <div class="flex items-center gap-4 mb-3">
+                        <span class="text-brand-600 text-xs font-black flex items-center gap-1.5"><i class="fa-regular fa-calendar"></i> Oct 19, 2026</span>
+                        <span class="text-gray-500 text-xs font-bold flex items-center gap-1.5"><i class="fa-regular fa-clock"></i> 5 Days</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-6 flex-grow">Staying in Weymouth with visits to Durdle Door, Lulworth Cove and the World Heritage coast.</p>
+                    <div class="mt-auto pt-4 border-t border-gray-100 flex justify-between items-center">
+                        <div>
+                            <span class="text-[11px] font-bold text-gray-400 uppercase tracking-wider block">From</span>
+                            <span class="text-2xl font-black text-brand-600">£473</span>
+                        </div>
+                        <button class="bg-white border-2 border-brand-600 text-brand-600 hover:bg-brand-600 hover:text-white px-5 py-2 rounded-xl text-xs font-extrabold transition-colors">
+                            Book Now
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-950 text-white pt-16 pb-12 border-t-[6px] border-brand-600">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-1">
+                    <div class="bg-white p-3 rounded-2xl w-fit mb-6 shadow-md border border-gray-800">
+                        <img src="logo-lynns.png" alt="Lynns Travel Eastbourne Logo" class="h-9 w-auto object-contain" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'text-brand-600 font-black text-xl tracking-tighter\'>LYNNS <span class=\'font-normal italic text-gray-800\'>Eastbourne</span></span>'">
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6 font-medium">
+                        70 Seaside Road, Eastbourne, East Sussex, BN21 3PE.<br>
+                        Your trusted independent family travel company.
+                    </p>
+                    <div class="flex gap-3">
+                        <a href="#" class="w-9 h-9 bg-gray-900 rounded-full flex items-center justify-center text-gray-400 hover:bg-brand-600 hover:text-white transition-colors"><i class="fa-brands fa-facebook-f text-sm"></i></a>
+                        <a href="#" class="w-9 h-9 bg-gray-900 rounded-full flex items-center justify-center text-gray-400 hover:bg-brand-600 hover:text-white transition-colors"><i class="fa-brands fa-instagram text-sm"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-5 text-white uppercase text-xs tracking-wider">Services</h4>
+                    <ul class="space-y-3 text-sm text-gray-400 font-medium">
+                        <li><a href="#" class="hover:text-brand-400 transition-colors">Coach Holidays</a></li>
+                        <li><a href="#" class="hover:text-brand-400 transition-colors">Day Excursions</a></li>
+                        <li><a href="#" class="hover:text-brand-400 transition-colors">Private Coach Hire</a></li>
+                        <li><a href="#" class="hover:text-brand-400 transition-colors">Brochure Request</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold mb-5 text-white uppercase text-xs tracking-wider">Support</h4>
+                    <ul class="space-y-3 text-sm text-gray-400 font-medium">
+                        <li><a href="#" class="hover:text-brand-400 transition-colors">Contact Office</a></li>
+                        <li><a href="#" class="hover:text-brand-400 transition-colors">Travel Insurance</a></li>
+                        <li><a href="#" class="hover:text-brand-400 transition-colors">Terms & Booking Conditions</a></li>
+                        <li><a href="#" class="hover:text-brand-400 transition-colors">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold mb-5 text-white uppercase text-xs tracking-wider">Contact</h4>
+                    <ul class="space-y-4 text-sm text-gray-400">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-phone mt-1 text-brand-600"></i>
+                            <div>
+                                <p class="text-white font-bold">01323 438704</p>
+                                <p class="text-xs text-gray-400 font-medium">General Bookings (9am - 4pm)</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-mobile-screen mt-1 text-brand-600"></i>
+                            <div>
+                                <p class="text-white font-bold">07973 952770</p>
+                                <p class="text-xs text-gray-400 font-medium">24/7 Coach Emergency</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-xs font-medium">© 2026 Lynns Travel Limited. All rights reserved.</p>
+                <div class="flex gap-4 text-2xl text-gray-600">
+                    <i class="fa-brands fa-cc-visa hover:text-white transition-colors cursor-pointer"></i>
+                    <i class="fa-brands fa-cc-mastercard hover:text-white transition-colors cursor-pointer"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE JAVASCRIPT LOGIC -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // --- Sticky Navbar Transition ---
+            const navbar = document.getElementById('navbar');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 40) {
+                    navbar.classList.add('bg-white', 'shadow-md', 'py-2');
+                    navbar.classList.remove('bg-transparent', 'py-4', 'border-transparent');
+                    navLinks.forEach(link => {
+                        link.classList.remove('text-white', 'hover:text-brand-200');
+                        link.classList.add('text-gray-700', 'hover:text-brand-600');
+                    });
+                } else {
+                    navbar.classList.remove('bg-white', 'shadow-md', 'py-2');
+                    navbar.classList.add('bg-transparent', 'py-4', 'border-transparent');
+                    navLinks.forEach(link => {
+                        link.classList.remove('text-gray-700', 'hover:text-brand-600');
+                        link.classList.add('text-white', 'hover:text-brand-200');
+                    });
+                }
+            });
+
+            // --- Elements for Airbnb Search Bar ---
+            const searchContainer = document.getElementById('searchContainer');
+            const segments = document.querySelectorAll('.search-segment');
+            const activePill = document.getElementById('activePill');
+            const div1 = document.getElementById('divider-1');
+            const div2 = document.getElementById('divider-2');
+            const searchBtn = document.getElementById('searchBtn');
+            const searchText = document.getElementById('searchText');
+
+            const unifiedDropdown = document.getElementById('unifiedDropdown');
+            const paneDest = document.getElementById('pane-dest');
+            const paneWhen = document.getElementById('pane-when');
+            const panePax = document.getElementById('pane-pax');
+
+            const destInput = document.getElementById('destinationSearch');
+            const whenText = document.getElementById('whenDisplayText');
+            const paxText = document.getElementById('passengerDisplayText');
+
+            const clearDestBtn = document.getElementById('clearDestBtn');
+            const clearWhenBtn = document.getElementById('clearWhenBtn');
+            const clearPaxBtn = document.getElementById('clearPaxBtn');
+
+            let currentActiveIndex = null;
+
+            // Updates the individual clear ('✕') buttons: ONLY visible when active AND filled
+            function updateClearButtons() {
+                // Destination
+                if (currentActiveIndex === 0 && destInput.value.trim().length > 0) {
+                    clearDestBtn.classList.remove('opacity-0', 'pointer-events-none');
+                } else {
+                    clearDestBtn.classList.add('opacity-0', 'pointer-events-none');
+                }
+
+                // When
+                if (currentActiveIndex === 1 && startDate !== null) {
+                    clearWhenBtn.classList.remove('opacity-0', 'pointer-events-none');
+                } else {
+                    clearWhenBtn.classList.add('opacity-0', 'pointer-events-none');
+                }
+
+                // Passengers
+                if (currentActiveIndex === 2 && (adultCountVal > 0 || childCountVal > 0)) {
+                    clearPaxBtn.classList.remove('opacity-0', 'pointer-events-none');
+                } else {
+                    clearPaxBtn.classList.add('opacity-0', 'pointer-events-none');
+                }
+            }
+
+            // Updates Divider visibility based on Airbnb rules
+            function updateDividers(index) {
+                if (index === 0) {
+                    div1.classList.add('opacity-0');
+                    div2.classList.remove('opacity-0');
+                } else if (index === 1) {
+                    div1.classList.add('opacity-0');
+                    div2.classList.add('opacity-0');
+                } else if (index === 2) {
+                    div1.classList.remove('opacity-0');
+                    div2.classList.add('opacity-0');
+                } else {
+                    div1.classList.remove('opacity-0');
+                    div2.classList.remove('opacity-0');
+                }
+            }
+
+            // Activates a segment and smoothly morphs the unified dropdown
+            function activateSegment(segment) {
+                const index = parseInt(segment.getAttribute('data-index'), 10);
+                currentActiveIndex = index;
+
+                // Container styling
+                searchContainer.classList.remove('bg-white');
+                searchContainer.classList.add('bg-gray-100');
+
+                // Expand Search button
+                searchBtn.classList.remove('w-11', 'md:w-12');
+                searchBtn.classList.add('w-auto', 'px-5');
+                searchText.classList.remove('hidden');
+
+                // 100% Full-bleed active white pill
+                activePill.style.left = `${segment.offsetLeft}px`;
+                activePill.style.top = '0px';
+                activePill.style.width = `${segment.offsetWidth}px`;
+                activePill.style.height = `${segment.offsetHeight}px`;
+                activePill.classList.remove('opacity-0');
+
+                updateDividers(index);
+                updateClearButtons();
+
+                // Open & Morph Unified Dropdown
+                unifiedDropdown.classList.remove('hidden');
+
+                // Hide all panes first
+                paneDest.classList.add('hidden');
+                paneWhen.classList.add('hidden');
+                panePax.classList.add('hidden');
+
+                if (index === 0) {
+                    paneDest.classList.remove('hidden');
+                    unifiedDropdown.style.left = `${segment.offsetLeft}px`;
+                    unifiedDropdown.style.right = 'auto';
+                    unifiedDropdown.style.width = '380px';
+                } else if (index === 1) {
+                    paneWhen.classList.remove('hidden');
+                    // Full-width centered under search bar
+                    unifiedDropdown.style.left = '0px';
+                    unifiedDropdown.style.right = '0px';
+                    unifiedDropdown.style.width = '100%';
+                } else if (index === 2) {
+                    panePax.classList.remove('hidden');
+                    unifiedDropdown.style.left = 'auto';
+                    unifiedDropdown.style.right = '0px';
+                    unifiedDropdown.style.width = '340px';
+                }
+            }
+
+            // Resets search state when clicking outside
+            function resetSearchState() {
+                currentActiveIndex = null;
+                searchContainer.classList.add('bg-white');
+                searchContainer.classList.remove('bg-gray-100');
+
+                activePill.classList.add('opacity-0');
+                updateDividers(null);
+                updateClearButtons();
+
+                searchBtn.classList.add('w-11', 'md:w-12');
+                searchBtn.classList.remove('w-auto', 'px-5');
+                searchText.classList.add('hidden');
+
+                unifiedDropdown.classList.add('hidden');
+            }
+
+            // Segment click listeners
+            segments.forEach(segment => {
+                segment.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    activateSegment(segment);
+                    if (segment.id === 'segment-dest') {
+                        destInput.focus();
+                    }
+                });
+            });
+
+            // Prevent dropdown internal clicks from closing
+            unifiedDropdown.addEventListener('click', e => e.stopPropagation());
+
+            // Click outside closes
+            document.addEventListener('click', (e) => {
+                if (!document.getElementById('searchWrapper').contains(e.target)) {
+                    resetSearchState();
+                }
+            });
+
+            // Individual Clear Handlers
+            clearDestBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                destInput.value = '';
+                filterTours();
+                updateClearButtons();
+                destInput.focus();
+            });
+
+            clearWhenBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                startDate = null;
+                endDate = null;
+                whenText.textContent = 'Add dates';
+                whenText.classList.replace('text-gray-900', 'text-gray-400');
+                renderDualCalendar();
+                updateClearButtons();
+            });
+
+            clearPaxBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                adultCountVal = 0;
+                childCountVal = 0;
+                updatePaxState();
+                updateClearButtons();
+            });
+
+            destInput.addEventListener('input', () => {
+                updateClearButtons();
+                filterTours();
+            });
+
+            // Destination suggestions
+            document.querySelectorAll('.suggestion-item').forEach(item => {
+                item.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const dest = item.getAttribute('data-value');
+                    destInput.value = dest;
+                    filterTours();
+                    // Transition smoothly to 'When'
+                    activateSegment(document.getElementById('segment-when'));
+                });
+            });
+
+            // --- Airbnb Dual Month Calendar Logic ---
+            let calendarCurrentDate = new Date(2026, 9, 1); // Start October 2026
+            let startDate = null;
+            let endDate = null;
+
+            const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+            function renderDualCalendar() {
+                const container = document.getElementById('dualCalendarContainer');
+                container.innerHTML = '';
+
+                for (let offset = 0; offset < 2; offset++) {
+                    const monthDate = new Date(calendarCurrentDate.getFullYear(), calendarCurrentDate.getMonth() + offset, 1);
+                    const year = monthDate.getFullYear();
+                    const month = monthDate.getMonth();
+
+                    const monthWrapper = document.createElement('div');
+                    monthWrapper.className = 'calendar-month';
+
+                    // Month Header
+                    const header = document.createElement('div');
+                    header.className = 'font-bold text-gray-800 text-sm mb-4 text-center';
+                    header.textContent = `${monthNames[month]} ${year}`;
+                    monthWrapper.appendChild(header);
+
+                    // Day of week labels
+                    const daysGrid = document.createElement('div');
+                    daysGrid.className = 'grid grid-cols-7 gap-1 text-center text-xs font-bold text-gray-400 mb-2';
+                    ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'].forEach(d => {
+                        const dayLabel = document.createElement('div');
+                        dayLabel.textContent = d;
+                        daysGrid.appendChild(dayLabel);
+                    });
+                    monthWrapper.appendChild(daysGrid);
+
+                    // Days grid
+                    const datesGrid = document.createElement('div');
+                    datesGrid.className = 'grid grid-cols-7 gap-1 text-center text-xs font-semibold';
+
+                    const firstDayIndex = new Date(year, month, 1).getDay();
+                    const totalDays = new Date(year, month + 1, 0).getDate();
+
+                    // Blank leading days
+                    for (let i = 0; i < firstDayIndex; i++) {
+                        const emptyCell = document.createElement('div');
+                        emptyCell.className = 'h-9 w-9';
+                        datesGrid.appendChild(emptyCell);
+                    }
+
+                    // Calendar day numbers
+                    for (let day = 1; day <= totalDays; day++) {
+                        const cellDate = new Date(year, month, day);
+                        const cell = document.createElement('button');
+                        cell.type = 'button';
+                        cell.className = 'h-9 w-9 mx-auto rounded-full flex items-center justify-center transition-colors relative';
+                        cell.textContent = day;
+
+                        const isStart = startDate && cellDate.getTime() === startDate.getTime();
+                        const isEnd = endDate && cellDate.getTime() === endDate.getTime();
+                        const inRange = startDate && endDate && cellDate > startDate && cellDate < endDate;
+
+                        if (isStart || isEnd) {
+                            cell.classList.add('bg-brand-600', 'text-white', 'font-black', 'shadow-md');
+                        } else if (inRange) {
+                            cell.classList.add('bg-red-50', 'text-brand-700', 'rounded-none');
+                        } else {
+                            cell.classList.add('hover:bg-gray-100', 'text-gray-800');
+                        }
+
+                        cell.addEventListener('click', (e) => {
+                            e.stopPropagation();
+                            if (!startDate || (startDate && endDate)) {
+                                startDate = cellDate;
+                                endDate = null;
+                            } else if (startDate && !endDate) {
+                                if (cellDate < startDate) {
+                                    startDate = cellDate;
+                                } else {
+                                    endDate = cellDate;
+                                }
+                            }
+
+                            // Update displayText
+                            if (startDate && !endDate) {
+                                whenText.textContent = `${startDate.getDate()} ${monthNames[startDate.getMonth()].slice(0, 3)}`;
+                                whenText.classList.replace('text-gray-400', 'text-gray-900');
+                            } else if (startDate && endDate) {
+                                whenText.textContent = `${startDate.getDate()} ${monthNames[startDate.getMonth()].slice(0, 3)} - ${endDate.getDate()} ${monthNames[endDate.getMonth()].slice(0, 3)}`;
+                                whenText.classList.replace('text-gray-400', 'text-gray-900');
+                            }
+
+                            renderDualCalendar();
+                            updateClearButtons();
+                        });
+
+                        datesGrid.appendChild(cell);
+                    }
+
+                    monthWrapper.appendChild(datesGrid);
+                    container.appendChild(monthWrapper);
+                }
+            }
+
+            document.getElementById('prevMonthBtn').addEventListener('click', (e) => {
+                e.stopPropagation();
+                calendarCurrentDate.setMonth(calendarCurrentDate.getMonth() - 1);
+                renderDualCalendar();
+            });
+
+            document.getElementById('nextMonthBtn').addEventListener('click', (e) => {
+                e.stopPropagation();
+                calendarCurrentDate.setMonth(calendarCurrentDate.getMonth() + 1);
+                renderDualCalendar();
+            });
+
+            document.getElementById('flexibleDateBtn').addEventListener('click', (e) => {
+                e.stopPropagation();
+                startDate = new Date(2026, 9, 12);
+                endDate = new Date(2026, 9, 17);
+                whenText.textContent = 'Oct 12 - Oct 17';
+                whenText.classList.replace('text-gray-400', 'text-gray-900');
+                renderDualCalendar();
+                updateClearButtons();
+            });
+
+            document.getElementById('confirmDatesBtn').addEventListener('click', (e) => {
+                e.stopPropagation();
+                activateSegment(document.getElementById('segment-pax'));
+            });
+
+            // Initialize Dual Calendar
+            renderDualCalendar();
+
+            // --- Passenger Counter Logic ---
+            let adultCountVal = 0;
+            let childCountVal = 0;
+
+            const adultMinus = document.getElementById('adultMinus');
+            const adultPlus = document.getElementById('adultPlus');
+            const adultCountEl = document.getElementById('adultCount');
+
+            const childMinus = document.getElementById('childMinus');
+            const childPlus = document.getElementById('childPlus');
+            const childCountEl = document.getElementById('childCount');
+
+            function updatePaxState() {
+                adultCountEl.textContent = adultCountVal;
+                childCountEl.textContent = childCountVal;
+
+                adultMinus.disabled = adultCountVal <= 0;
+                childMinus.disabled = childCountVal <= 0;
+
+                const total = adultCountVal + childCountVal;
+                if (total === 0) {
+                    paxText.textContent = 'Add passengers';
+                    paxText.classList.replace('text-gray-900', 'text-gray-400');
+                } else {
+                    paxText.textContent = `${total} passenger${total > 1 ? 's' : ''}`;
+                    paxText.classList.replace('text-gray-400', 'text-gray-900');
+                }
+                updateClearButtons();
+            }
+
+            adultPlus.addEventListener('click', (e) => {
+                e.stopPropagation();
+                adultCountVal++;
+                updatePaxState();
+            });
+
+            adultMinus.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (adultCountVal > 0) adultCountVal--;
+                updatePaxState();
+            });
+
+            childPlus.addEventListener('click', (e) => {
+                e.stopPropagation();
+                childCountVal++;
+                updatePaxState();
+            });
+
+            childMinus.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (childCountVal > 0) childCountVal--;
+                updatePaxState();
+            });
+
+            // --- Tour Filter Logic ---
+            const cards = document.querySelectorAll('.tour-card');
+            const noResults = document.getElementById('noResults');
+
+            function filterTours() {
+                const query = destInput.value.toLowerCase().trim();
+                let matches = 0;
+
+                cards.forEach(card => {
+                    const textData = (card.getAttribute('data-title') || '') + " " + card.innerText.toLowerCase();
+                    if (textData.includes(query)) {
+                        card.style.display = 'flex';
+                        matches++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                if (matches === 0) {
+                    noResults.classList.remove('hidden');
+                } else {
+                    noResults.classList.add('hidden');
+                }
+            }
+
+            searchBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                filterTours();
+                document.getElementById('packagesSection').scrollIntoView({ behavior: 'smooth' });
+                resetSearchState();
+            });
+
+            document.getElementById('resetFilterBtn').addEventListener('click', () => {
+                destInput.value = '';
+                filterTours();
+                updateClearButtons();
+            });
+        });
+    </script>
+</body>
+</html>
